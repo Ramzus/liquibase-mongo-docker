@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim-buster
+FROM eclipse-temurin:18-jre
 
 # Install GPG for package vefification
 RUN apt-get update \
@@ -16,10 +16,10 @@ WORKDIR /liquibase
 USER liquibase
 
 # Latest Liquibase Release Version
-ARG LIQUIBASE_VERSION=4.5.0
+ARG LIQUIBASE_VERSION=4.12.0
 
 # Download, verify, extract
-ARG LB_SHA256=4ce45bcbe4660b33eee93e80b9be968631e85566d02d90c0c5306fac8d4dd602
+ARG LB_SHA256=7127d3303df5318821d418856bdd751e32baafa302ac3fa2083ea54e32ae16dc
 RUN set -x \
   && wget -O liquibase-${LIQUIBASE_VERSION}.tar.gz "https://github.com/liquibase/liquibase/releases/download/v${LIQUIBASE_VERSION}/liquibase-${LIQUIBASE_VERSION}.tar.gz" \
   && sha256sum liquibase-${LIQUIBASE_VERSION}.tar.gz \
@@ -29,10 +29,11 @@ RUN set -x \
 # Setup GPG
 RUN GNUPGHOME="$(mktemp -d)" 
 
-ARG LB_MONGO_VERSION=4.5.0
-ARG MDB_JAVA_DRIVER_VERSION=4.3.2
+ARG LB_MONGO_VERSION=4.12.0
+ARG MDB_JAVA_DRIVER_VERSION=4.6.1
+ARG MDB_BSON=4.6.1
 RUN wget -O /liquibase/lib/mongodb.jar https://github.com/liquibase/liquibase-mongodb/releases/download/liquibase-mongodb-${LB_MONGO_VERSION}/liquibase-mongodb-${LB_MONGO_VERSION}.jar
-RUN wget -O /liquibase/lib/bson-${MDB_JAVA_DRIVER_VERSION}.jar https://repo1.maven.org/maven2/org/mongodb/bson/${MDB_JAVA_DRIVER_VERSION}/bson-${MDB_JAVA_DRIVER_VERSION}.jar
+RUN wget -O /liquibase/lib/bson-${MDB_BSON}.jar https://repo1.maven.org/maven2/org/mongodb/bson/${MDB_BSON}/bson-${MDB_BSON}.jar
 RUN wget -O /liquibase/lib/mongodb-driver-core-${MDB_JAVA_DRIVER_VERSION}.jar https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-core/${MDB_JAVA_DRIVER_VERSION}/mongodb-driver-core-${MDB_JAVA_DRIVER_VERSION}.jar
 RUN wget -O /liquibase/lib/mongodb-driver-sync-${MDB_JAVA_DRIVER_VERSION}.jar https://repo1.maven.org/maven2/org/mongodb/mongodb-driver-sync/${MDB_JAVA_DRIVER_VERSION}/mongodb-driver-sync-${MDB_JAVA_DRIVER_VERSION}.jar
 

@@ -5,7 +5,7 @@
               http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <property  name="collection.name"  value="myCollection"/>
-    <changeSet id="1" author="max">
+    <changeSet id="1" author="test">
         <ext:createCollection collectionName="${collection.name}">
             <ext:options>
                {
