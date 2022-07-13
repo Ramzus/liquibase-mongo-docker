@@ -1,7 +1,9 @@
 # liquibase-mongo-docker
 
 Liquibase and its MongoDB extension conveniently packaged in a Docker image that works out of the box.
+
 This dockerfile is also available as a Docker Image on DockerHub: [Docker Repository](https://hub.docker.com/repository/docker/ramzus/liquibase-mongo-docker) 
+
 This repository is forked from https://github.com/mmarcon/liquibase-mongo-docker, all congrats to him !
 
 ## Links
