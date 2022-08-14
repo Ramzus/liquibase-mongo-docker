@@ -82,3 +82,4 @@ For more information about mongosh, please see our docs: https://docs.mongodb.co
 ## TODO
 * Add tests to verify that the image is working
 * Add automatic update of the Dockerfile when the version of Liquibase changes
+* Find a way to generate checksum for dependencies of the docker image
