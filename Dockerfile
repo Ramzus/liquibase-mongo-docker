@@ -18,12 +18,9 @@ USER liquibase
 # Latest Liquibase Release Version
 ARG LIQUIBASE_VERSION=4.15.0
 
-# Download, verify, extract
-ARG LB_SHA256=7127d3303df5318821d418856bdd751e32baafa302ac3fa2083ea54e32ae16dc
+# Download and extract
 RUN set -x \
   && wget -O liquibase-${LIQUIBASE_VERSION}.tar.gz "https://github.com/liquibase/liquibase/releases/download/v${LIQUIBASE_VERSION}/liquibase-${LIQUIBASE_VERSION}.tar.gz" \
-  && sha256sum liquibase-${LIQUIBASE_VERSION}.tar.gz \
-  && echo "$LB_SHA256  liquibase-${LIQUIBASE_VERSION}.tar.gz" | sha256sum -c - \
   && tar -xzf liquibase-${LIQUIBASE_VERSION}.tar.gz
 
 # Setup GPG
