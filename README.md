@@ -78,3 +78,7 @@ For more information about mongosh, please see our docs: https://docs.mongodb.co
 
 ## Known issues
 * The `generateChangeLog` command is currently not supported for MongoDB.
+
+## TODO
+* Add tests to verify that the image is working
+* Add automatic update of the Dockerfile when the version of Liquibase changes
