@@ -16,7 +16,7 @@ This repository is forked from https://github.com/mmarcon/liquibase-mongo-docker
 First, build the Docker image
 
 ```bash
-$ docker build . --tag "liquibase-mongo:4.12.1"  
+$ docker build . --tag "liquibase-mongo:4.15.0"  
 ```
 
 Then use it as follow.
@@ -25,7 +25,7 @@ Then use it as follow.
 
 ```bash
 $ docker run --rm -v \
-"`pwd`/example/changelog:/liquibase/changelog" liquibase-mongo:4.12.1 \
+"`pwd`/example/changelog:/liquibase/changelog" liquibase-mongo:4.15.0 \
 --url="mongodb://host.docker.internal:27017/liquibase_test" --changeLogFile=changelog/changelog.xml --logLevel=info update
 ```
 
@@ -33,7 +33,7 @@ $ docker run --rm -v \
 
 ```bash
 $ docker run --rm -v \
-"`pwd`/example/changelog:/liquibase/changelog" liquibase-mongo:4.12.1 \
+"`pwd`/example/changelog:/liquibase/changelog" liquibase-mongo:4.15.0 \
 --url="mongodb://host.docker.internal:27017/liquibase_test" --logLevel=info tag tagName
 ```
 ### Rollback
@@ -42,7 +42,7 @@ $ docker run --rm -v \
 
 ```bash
 $ docker run --rm -v \
-"`pwd`/example/changelog:/liquibase/changelog" liquibase-mongo:4.12.1 \
+"`pwd`/example/changelog:/liquibase/changelog" liquibase-mongo:4.15.0 \
 --url="mongodb://host.docker.internal:27017/liquibase_test" --changeLogFile=changelog/changelog.xml --logLevel=info rollbackCount 1
 ```
 
@@ -50,7 +50,7 @@ $ docker run --rm -v \
 
 ```bash
 $ docker run --rm -v \
-"`pwd`/example/changelog:/liquibase/changelog" liquibase-mongo:4.12.1 \
+"`pwd`/example/changelog:/liquibase/changelog" liquibase-mongo:4.15.0 \
 --url="mongodb://host.docker.internal:27017/liquibase_test" --changeLogFile=changelog/changelog.xml --logLevel=info rollback tagName
 ```
 
