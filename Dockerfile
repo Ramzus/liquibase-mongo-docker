@@ -16,7 +16,7 @@ WORKDIR /liquibase
 USER liquibase
 
 # Latest Liquibase Release Version
-ARG LIQUIBASE_VERSION=4.15.0
+ARG LIQUIBASE_VERSION=4.16.1
 
 # Download and extract
 RUN set -x \
@@ -26,7 +26,7 @@ RUN set -x \
 # Setup GPG
 RUN GNUPGHOME="$(mktemp -d)" 
 
-ARG LB_MONGO_VERSION=4.15.0
+ARG LB_MONGO_VERSION=4.16.1
 ARG MDB_JAVA_DRIVER_VERSION=4.6.1
 ARG MDB_BSON=4.6.1
 ARG JACKSON_VERSION=2.13.3
